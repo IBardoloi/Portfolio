@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inika Bardoloi — Engineering Portfolio</title>
+<meta name="description" content="Inika Bardoloi, AMIMechE — Mechanical engineer specialising in powertrain simulation, CAD design and structural analysis.">
+<meta name="theme-color" content="#F3F1EC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F1EC;
+  --paper:#FFFFFF;
+  --ink:#1A1A18;
+  --ink-mid:#54524C;
+  --ink-dim:#8B887F;
+  --rule:#1A1A18;
+  --rule-soft:#D8D5CC;
+  --mark:#1A1A18;
+  --maxw:1180px;
+  --sans:'IBM Plex Sans',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+ul{list-style:none;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:-0.01em;}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-dim);}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--rule);}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:0.02em;}
+.nav-links{display:flex;gap:30px;align-items:center;}
+.nav-links a{font-family:var(--mono);font-size:12.5px;color:var(--ink-mid);letter-spacing:0.02em;padding:4px 0;border-bottom:1px solid transparent;transition:border-color .15s,color .15s;}
+.nav-links a:hover{color:var(--ink);border-color:var(--ink);}
+.nav-toggle{display:none;background:none;border:1px solid var(--rule);color:var(--ink);width:36px;height:36px;font-family:var(--mono);cursor:pointer;}
+
+/* ---------- HERO ---------- */
+.hero{padding:64px 0 56px;border-bottom:1px solid var(--rule);}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:40px;}
+.hero-top .label{max-width:280px;}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.4rem);line-height:1.05;letter-spacing:-0.02em;}
+.hero .postnom{font-family:var(--mono);font-weight:500;font-size:0.34em;color:var(--ink-mid);vertical-align:middle;margin-left:8px;}
+.hero-sub{font-family:var(--mono);font-size:13.5px;color:var(--ink-mid);margin-top:14px;letter-spacing:0.01em;}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;margin-top:36px;}
+.hero-copy p{color:var(--ink-mid);max-width:56ch;font-size:15.5px;}
+.hero-cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;}
+.btn{font-family:var(--mono);font-size:12.5px;letter-spacing:0.02em;padding:12px 20px;border:1px solid var(--rule);transition:background .15s,color .15s;}
+.btn-primary{background:var(--ink);color:var(--paper);}
+.btn-primary:hover{background:var(--ink-mid);}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);}
+.hero-facts{border-left:1px solid var(--rule);padding-left:32px;}
+.hero-facts .fact{padding:14px 0;border-bottom:1px solid var(--rule-soft);}
+.hero-facts .fact:last-child{border-bottom:none;}
+.hero-facts .f-k{font-family:var(--mono);font-size:10.5px;color:var(--ink-dim);letter-spacing:0.08em;text-transform:uppercase;}
+.hero-facts .f-v{font-size:14.5px;font-weight:500;margin-top:3px;}
+
+/* ---------- SECTIONS ---------- */
+.section{padding:72px 0;border-bottom:1px solid var(--rule);}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:40px;}
+.section-head h2{font-size:clamp(1.5rem,3vw,2rem);}
+.section-note{font-family:var(--mono);font-size:12px;color:var(--ink-dim);margin-top:6px;}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;}
+.about-copy p{color:var(--ink-mid);margin-bottom:16px;max-width:58ch;font-size:15.5px;}
+.about-copy strong{color:var(--ink);}
+.about-side{border-left:1px solid var(--rule);padding-left:28px;}
+.about-side .fact{padding:12px 0;border-bottom:1px solid var(--rule-soft);}
+.about-side .fact:last-child{border-bottom:none;}
+.about-side .f-k{font-family:var(--mono);font-size:10.5px;color:var(--ink-dim);letter-spacing:0.06em;text-transform:uppercase;}
+.about-side .f-v{font-size:14px;margin-top:3px;}
+
+/* ---------- SKILLS ---------- */
+.skills-table{border-top:1px solid var(--rule);}
+.skill-row{display:grid;grid-template-columns:60px 1.4fr 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--rule-soft);align-items:baseline;}
+.skill-row .sk-idx{font-family:var(--mono);font-size:12px;color:var(--ink-dim);}
+.skill-row h3{font-size:16px;margin-bottom:6px;}
+.skill-row p{color:var(--ink-mid);font-size:14px;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;align-self:start;}
+.tag{font-family:var(--mono);font-size:10.5px;color:var(--ink-mid);border:1px solid var(--rule-soft);padding:4px 8px;}
+
+/* ---------- PROJECTS ---------- */
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
+.filter-btn{font-family:var(--mono);font-size:11.5px;color:var(--ink-mid);background:transparent;border:1px solid var(--rule-soft);padding:8px 14px;cursor:pointer;transition:all .15s;}
+.filter-btn:hover{border-color:var(--ink);color:var(--ink);}
+.filter-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.project-card{background:var(--paper);display:flex;flex-direction:column;}
+.project-card.is-hidden{display:none;}
+.proj-img{position:relative;width:100%;aspect-ratio:4/3;background:
+    repeating-linear-gradient(135deg, var(--rule-soft) 0 1px, transparent 1px 16px);
+  border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:center;}
+.proj-img-label{font-family:var(--mono);font-size:10.5px;color:var(--ink-dim);text-align:center;letter-spacing:0.04em;border:1px dashed var(--ink-dim);padding:10px 16px;background:var(--paper);}
+.proj-body{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.proj-meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--ink-dim);letter-spacing:0.03em;text-transform:uppercase;}
+.project-card h3{font-size:17px;}
+.proj-desc{color:var(--ink-mid);font-size:14px;}
+.proj-outcomes{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.project-card.expanded .proj-outcomes{max-height:220px;}
+.proj-outcomes ul{padding-top:10px;border-top:1px solid var(--rule-soft);margin-top:2px;display:flex;flex-direction:column;gap:7px;}
+.proj-outcomes li{font-size:13px;color:var(--ink-mid);padding-left:14px;position:relative;}
+.proj-outcomes li::before{content:'–';position:absolute;left:0;}
+.proj-toggle{align-self:flex-start;font-family:var(--mono);font-size:11px;color:var(--ink);background:none;border:none;border-bottom:1px solid var(--ink);cursor:pointer;padding:0;margin-top:2px;}
+
+/* ---------- DEVELOPMENT ---------- */
+.dev-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:1px;}
+.dev-card{background:var(--paper);padding:26px;}
+.dev-card h3{font-size:15px;margin-bottom:10px;}
+.dev-card p{color:var(--ink-mid);font-size:14px;}
+.status-line{font-family:var(--mono);font-size:11px;color:var(--ink);border-bottom:1px solid var(--ink);display:inline-block;padding-bottom:2px;margin-bottom:14px;letter-spacing:0.03em;}
+.cert-list{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.cert-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--rule-soft);font-size:13px;gap:10px;}
+.cert-row span:last-child{font-family:var(--mono);font-size:10.5px;color:var(--ink-dim);white-space:nowrap;}
+.community-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-top:none;}
+.community-item{background:var(--paper);padding:22px 26px;}
+.community-item h4{font-size:14px;margin-bottom:6px;}
+.community-item p{font-size:13px;color:var(--ink-mid);}
+
+/* ---------- CONTACT ---------- */
+.contact-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start;}
+.contact-inner h2{font-size:clamp(1.7rem,3.2vw,2.2rem);margin-bottom:14px;}
+.contact-inner p{color:var(--ink-mid);max-width:44ch;font-size:15px;}
+.contact-list a{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--rule-soft);transition:padding-left .15s;}
+.contact-list a:hover{padding-left:6px;}
+.contact-list .c-label{font-family:var(--mono);font-size:10.5px;color:var(--ink-dim);letter-spacing:0.06em;}
+.contact-list .c-value{font-weight:500;}
+.contact-list .c-arrow{font-family:var(--mono);color:var(--ink-dim);font-size:13px;}
+
+footer{padding:24px 0;}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+footer p{font-family:var(--mono);font-size:11px;color:var(--ink-dim);}
+
+@media(max-width:920px){
+  .hero-grid,.about-grid,.contact-inner,.dev-grid{grid-template-columns:1fr;}
+  .hero-facts,.about-side{border-left:none;padding-left:0;border-top:1px solid var(--rule);padding-top:20px;}
+  .project-grid{grid-template-columns:1fr;}
+  .community-row{grid-template-columns:1fr;}
+  .nav-links{position:fixed;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px 32px;border-bottom:1px solid var(--rule);transform:translateY(-140%);transition:transform .25s ease;}
+  .nav-links.open{transform:translateY(0);}
+  .nav-links a{padding:12px 0;border-bottom:1px solid var(--rule-soft);width:100%;}
+  .nav-toggle{display:block;}
+  .skill-row{grid-template-columns:1fr;gap:8px;}
+  .cert-list{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none !important;scroll-behavior:auto !important;}
+  .reveal{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-logo">IB</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Projects</a>
+      <a href="#development">Development</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">≡</button>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+      <p class="label">Graduate Mechanical Engineer — Powertrains &amp; Design</p>
+      <p class="label">Croydon, UK</p>
+    </div>
+    <h1>Inika Bardoloi<span class="postnom">AMIMechE</span></h1>
+    <p class="hero-sub">MSc Racing Engine Systems · Oxford Brookes · Distinction</p>
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <p>Mechanical engineer with an MSc in Racing Engine Systems. I bring careful attention to detail, methodical problem-solving, and genuine commitment to understanding how systems behave. Experience across aerospace, defence, and experimental environments, always working to get the details right.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#work">View Projects</a>
+          <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-facts reveal">
+        <div class="fact"><div class="f-k">Qualification</div><div class="f-v">MSc Racing Engine Systems, Distinction</div></div>
+        <div class="fact"><div class="f-k">Membership</div><div class="f-v">AMIMechE, Institution of Mechanical Engineers</div></div>
+        <div class="fact"><div class="f-k">Technical Focus</div><div class="f-v">Mechanical design · CAD · FEA · Fault investigation · Engine simulation</div></div>
+        <div class="fact"><div class="f-k">Availability</div><div class="f-v">Open to relocation</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="label">01 — About</p>
+      <h2>About Me</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>I chose to study automotive engineering because I was drawn to the technical challenge of how engines work: combustion, thermodynamics, mechanical systems operating under extreme conditions. It's work that demands precision and understanding at a deep level. My undergraduate degree at Manipal Institute of Technology gave me the foundation; my MSc at Oxford Brookes in Racing Engine Systems gave me the specialisation.</p>
+        <p>More than the coursework, my internships at L&amp;T Defence and DRDO taught me what rigorous engineering looks like. I worked on aerospace components where tolerances were measured in fractions of a millimetre, where small errors could have serious consequences, and where the culture was built around getting things right the first time. That experience shapes how I approach all my work.</p>
+        <p>My technical focus is mechanical design and systems understanding. I care about the details: how geometry affects performance, how material properties actually compare to specifications, how simulation needs to align with physical reality. My work ethic is straightforward: understand the problem thoroughly, apply the right tools systematically, validate rigorously, and contribute meaningfully to the team's goals.</p>
+      </div>
+      <div class="about-side reveal">
+        <div class="fact"><div class="f-k">Education</div><div class="f-v">MSc Racing Engine Systems — Distinction<br>Oxford Brookes University, 2025</div></div>
+        <div class="fact"><div class="f-k">Education</div><div class="f-v">B.Tech Automotive Engineering — First Class<br>Manipal Institute of Technology, 2022</div></div>
+        <div class="fact"><div class="f-k">Location</div><div class="f-v">Croydon, United Kingdom<br>Open to relocation for the right role</div></div>
+        <div class="fact"><div class="f-k">Target Roles</div><div class="f-v">Graduate Design Engineer · Mechanical Engineer (Power Units) · Graduate Powertrain Engineer</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="label">02 — Skills &amp; Tools</p>
+      <h2>Skills &amp; Tools</h2>
+    </div>
+    <div class="skills-table reveal">
+      <div class="skill-row">
+        <div class="sk-idx">01</div>
+        <div><h3>CAD &amp; 3D Design</h3><p>Clean-sheet component design, assembly modelling, manufacturing drawings, GD&amp;T. Proven from concept to physical prototype — including a full V6 engine model as a personal project.</p></div>
+        <div class="tag-row"><span class="tag">Fusion 360</span><span class="tag">CATIA V5</span><span class="tag">SolidWorks</span><span class="tag">AutoCAD</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="sk-idx">02</div>
+        <div><h3>Structural FEA</h3><p>Static, fatigue, vibration and modal analysis. Resonance prediction, design-to-failure margin studies, test-simulation correlation. Applied in both aerospace and academic contexts.</p></div>
+        <div class="tag-row"><span class="tag">ANSYS Workbench</span><span class="tag">ANSYS APDL</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="sk-idx">03</div>
+        <div><h3>Engine Modelling</h3><p>Full engine and intake system modelling, DoE-driven parameter optimisation, intake manifold geometry analysis, volumetric efficiency tuning across engine speed ranges.</p></div>
+        <div class="tag-row"><span class="tag">GT-Suite / GT-Power</span><span class="tag">GT-DoE</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="sk-idx">04</div>
+        <div><h3>MATLAB &amp; Simulink</h3><p>Data analysis, signal processing, model validation, control strategy development, DoE scripting. Used critically in identifying material discrepancies through frequency mismatch analysis.</p></div>
+        <div class="tag-row"><span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">R Studio</span><span class="tag">OpenModelica</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="sk-idx">05</div>
+        <div><h3>Testing &amp; Fault Finding</h3><p>Vibration/modal testing, ultrasonic crack detection, CMM calibration auditing, engine dyno preparation. Experienced in zero-defect inspection environments for space applications.</p></div>
+        <div class="tag-row"><span class="tag">Ultrasonic NDT</span><span class="tag">CMM</span><span class="tag">Impact Hammer Testing</span><span class="tag">Dyno</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="sk-idx">06</div>
+        <div><h3>Powertrain Knowledge</h3><p>Combustion thermodynamics, energy recovery systems, cooling system design, transmission matching, hybrid powertrain architecture — from MSc coursework and independent study.</p></div>
+        <div class="tag-row"><span class="tag">ICE</span><span class="tag">Hybrid ERS</span><span class="tag">Cooling</span><span class="tag">Transmission</span><span class="tag">Driveline</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="label">03 — Engineering Projects</p>
+      <h2>Engineering Projects</h2>
+    </div>
+    <p class="section-note" style="margin-bottom:28px;">Cards below are placeholders — swap in your own titles, images and outcomes. Click a card to expand its key outcomes.</p>
+
+    <div class="filter-row reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="simulation">Simulation</button>
+      <button class="filter-btn" data-filter="testing">Testing &amp; Fault-Finding</button>
+      <button class="filter-btn" data-filter="personal">Personal Project</button>
+    </div>
+
+    <div class="project-grid reveal" id="projectGrid">
+
+      <article class="project-card" data-cat="simulation">
+        <div class="proj-img"><span class="proj-img-label">PROJECT IMAGE<br>replace with render / screenshot</span></div>
+        <div class="proj-body">
+          <div class="proj-meta"><span>Simulation</span><span>Add year</span></div>
+          <h3>Project title — replace me</h3>
+          <p class="proj-desc">One or two sentences on the brief: what the problem was, what tool or method you used, and what you were trying to prove.</p>
+          <div class="tag-row"><span class="tag">Tool 1</span><span class="tag">Tool 2</span><span class="tag">Tool 3</span></div>
+          <button class="proj-toggle" data-toggle>+ Key outcomes</button>
+          <div class="proj-outcomes">
+            <ul>
+              <li>Outcome one — replace with a measurable result.</li>
+              <li>Outcome two — replace with a measurable result.</li>
+              <li>Outcome three — replace with a measurable result.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="design">
+        <div class="proj-img"><span class="proj-img-label">PROJECT IMAGE<br>replace with render / screenshot</span></div>
+        <div class="proj-body">
+          <div class="proj-meta"><span>Design</span><span>Add year</span></div>
+          <h3>Project title — replace me</h3>
+          <p class="proj-desc">One or two sentences on the brief: what you were designing, the constraints you were working within, and how it was validated.</p>
+          <div class="tag-row"><span class="tag">Tool 1</span><span class="tag">Tool 2</span></div>
+          <button class="proj-toggle" data-toggle>+ Key outcomes</button>
+          <div class="proj-outcomes">
+            <ul>
+              <li>Outcome one — replace with a measurable result.</li>
+              <li>Outcome two — replace with a measurable result.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="testing">
+        <div class="proj-img"><span class="proj-img-label">PROJECT IMAGE<br>replace with render / screenshot</span></div>
+        <div class="proj-body">
+          <div class="proj-meta"><span>Testing &amp; Fault-Finding</span><span>Add year</span></div>
+          <h3>Project title — replace me</h3>
+          <p class="proj-desc">One or two sentences: what was tested, what methods were cross-checked against each other, and what the investigation found.</p>
+          <div class="tag-row"><span class="tag">Tool 1</span><span class="tag">Tool 2</span><span class="tag">Tool 3</span></div>
+          <button class="proj-toggle" data-toggle>+ Key outcomes</button>
+          <div class="proj-outcomes">
+            <ul>
+              <li>Outcome one — replace with a measurable result.</li>
+              <li>Outcome two — replace with a measurable result.</li>
+              <li>Outcome three — replace with a measurable result.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" data-cat="personal">
+        <div class="proj-img"><span class="proj-img-label">PROJECT IMAGE<br>replace with render / screenshot</span></div>
+        <div class="proj-body">
+          <div class="proj-meta"><span>Personal Project</span><span>Ongoing</span></div>
+          <h3>Project title — replace me</h3>
+          <p class="proj-desc">One or two sentences on what you're building independently and why it's useful to show.</p>
+          <div class="tag-row"><span class="tag">Tool 1</span><span class="tag">Tool 2</span></div>
+          <button class="proj-toggle" data-toggle>+ Key outcomes</button>
+          <div class="proj-outcomes">
+            <ul>
+              <li>What this develops — replace with a skill or capability.</li>
+              <li>What this develops — replace with a skill or capability.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="development">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="label">04 — Professional Development</p>
+      <h2>Professional Development</h2>
+    </div>
+    <div class="dev-grid reveal">
+      <div class="dev-card">
+        <span class="status-line">AMIMechE — Registered</span>
+        <h3>Institution of Mechanical Engineers</h3>
+        <p>Registered Associate Member (AMIMechE) of the IMechE — the UK's leading professional body for mechanical engineers. Membership demonstrates formal commitment to engineering excellence, ethical practice, and continuing professional development, and forms the foundation for Chartered Engineer status.</p>
+      </div>
+      <div class="dev-card">
+        <h3>Completed &amp; In-Progress Certifications</h3>
+        <div class="cert-list">
+          <div class="cert-row"><span>Autodesk Fusion 360</span><span>Coursera · Certified</span></div>
+          <div class="cert-row"><span>MATLAB Programming</span><span>MathWorks · Certified</span></div>
+          <div class="cert-row"><span>Engineering with Siemens NX</span><span>Coursera · In progress</span></div>
+          <div class="cert-row"><span>Design Foundations (xDesign)</span><span>Coursera · In progress</span></div>
+          <div class="cert-row"><span>CATIA Mechanical Designer</span><span>Specialisation · In progress</span></div>
+          <div class="cert-row"><span>MATLAB for Engineers &amp; Scientists</span><span>Specialisation · In progress</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="community-row reveal">
+      <div class="community-item">
+        <h4>Girls on Track</h4>
+        <p>Motorsport UK programme supporting women entering the motorsport industry. Active participant, using the network to build industry connections and stay current with the sector.</p>
+      </div>
+      <div class="community-item">
+        <h4>Motorsport UK</h4>
+        <p>Registered member of Motorsport UK — the national governing body for motorsport in Britain. Specification member and community participant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="border-bottom:none;">
+  <div class="wrap contact-inner">
+    <div class="reveal">
+      <p class="label">05 — Contact</p>
+      <h2>Let's talk engineering.</h2>
+      <p>I'm actively seeking graduate mechanical design and powertrain engineering roles in motorsport and high-performance automotive. If you're looking for someone who brings both design rigour and fault-investigation instinct — I'd love to hear from you.</p>
+    </div>
+    <div class="contact-list reveal">
+      <a href="mailto:inikabardoloi@gmail.com"><span><span class="c-label">EMAIL</span><br><span class="c-value">inikabardoloi@gmail.com</span></span><span class="c-arrow">↗</span></a>
+      <a href="tel:+447562204208"><span><span class="c-label">PHONE</span><br><span class="c-value">+44 7562 204208</span></span><span class="c-arrow">↗</span></a>
+      <a href="http://www.linkedin.com/in/inikabardoloi" target="_blank" rel="noopener"><span><span class="c-label">LINKEDIN</span><br><span class="c-value">linkedin.com/in/inikabardoloi</span></span><span class="c-arrow">↗</span></a>
+      <a href="#"><span><span class="c-label">LOCATION</span><br><span class="c-value">Croydon, United Kingdom</span></span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Inika Bardoloi — Engineering Portfolio</p>
+    <p>MSc Racing Engine Systems · Oxford Brookes · Distinction</p>
+  </div>
+</footer>
+
+<script>
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+document.querySelectorAll('[data-toggle]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.project-card');
+    const expanded = card.classList.toggle('expanded');
+    btn.textContent = expanded ? '− Key outcomes' : '+ Key outcomes';
+  });
+});
+
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.project-card');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    cards.forEach(c => c.classList.toggle('is-hidden', f !== 'all' && c.dataset.cat !== f));
+  });
+});
+</script>
+</body>
+</html>
